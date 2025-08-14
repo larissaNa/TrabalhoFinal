@@ -244,7 +244,7 @@ class ContactFormValidator {
     async simulateEmailSend() {
         return new Promise((resolve) => {
             setTimeout(() => {
-                console.log('Email enviado com sucesso para contato-wisebites@gmail.com!');
+                console.log('Email enviado com sucesso para contato@wisebites.com!');
                 resolve();
             }, 2000);
         });
@@ -276,7 +276,7 @@ class ContactFormValidator {
                 <strong>Mensagem enviada com sucesso!</strong>
             </div>
             <p style="margin: 8px 0 0 0; font-size: 0.9rem;">
-                Sua mensagem foi enviada para contato-wisebites@gmail.com
+                Sua mensagem foi enviada para contato@wisebites.com
             </p>
         `;
         document.body.appendChild(toast);
