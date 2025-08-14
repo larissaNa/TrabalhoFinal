@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - WiseBites</title>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            document.body && document.body.classList && document.body.classList.add('dark-theme');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/portfolio.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.jpg" alt="WiseBites Logo">
+                <h1>WiseBites</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#services">Serviços</a></li>
+                    <li><a href="portfolio.html" class="active">Portfólio</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar no site...">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                </div>
+                <div class="auth-container">
+                    <button id="loginBtn" class="btn-login">Login</button>
+                    <div id="userProfile" class="user-profile" style="display: none;">
+                        <div class="notification-container">
+                            <button id="notificationBtn" class="notification-btn">
+                                <span class="notification-icon">🔔</span>
+                                <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
+                            </button>
+                            <div id="notificationDropdown" class="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3>Notificações</h3>
+                                    <button id="markAllRead" class="mark-read-btn">Marcar todas como lidas</button>
+                                </div>
+                                <div id="notificationList" class="notification-list">
+                                    <!-- Notifications will be added here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                        <img src="../assets/user-avatar.jpg" alt="Avatar" class="user-avatar">
+                        <span class="user-name">Usuário</span>
+                        <button id="logoutBtn" class="btn-logout">Sair</button>
+                    </div>
+                    <button id="themeToggleBtn" class="theme-toggle-btn">☀️</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h1>Nosso Portfólio de Projetos</h1>
+            <p class="portfolio-subtitle">Conheça alguns dos nossos projetos em tecnologia e desenvolvimento web</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <h3>Filtrar por Tecnologia:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="django">Django</button>
+                    <button class="filter-btn" data-filter="php">PHP</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="nodejs">Node.js</button>
+                    <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- React Projects -->
+                <div class="project-card" data-category="react">
+                    <div class="project-image">
+                        <img src="../assets/images/1640011361-react-ecommerce-tutorial.jpeg" alt="E-commerce React">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce React</h3>
+                        <p>Plataforma de e-commerce completa desenvolvida com React, Redux e Node.js.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="react">
+                    <div class="project-image">
+                        <img src="../assets/images/purple-react-1.png" alt="Dashboard React">
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Dashboard interativo para análise de dados com gráficos e relatórios em tempo real.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">API REST</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Django Projects -->
+                <div class="project-card" data-category="django">
+                    <div class="project-image">
+                        <img src="../assets/images/screely-1553824626096.png" alt="Blog Django">
+                    </div>
+                    <div class="project-content">
+                        <h3>Blog Django</h3>
+                        <p>Sistema de blog completo com autenticação, comentários e painel administrativo.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="django">
+                    <div class="project-image">
+                        <img src="../assets/images/Pipeline-view_201028_145631.jpeg" alt="CRM Django">
+                    </div>
+                    <div class="project-content">
+                        <h3>CRM Sistema</h3>
+                        <p>Sistema de gestão de relacionamento com clientes com módulos avançados.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Django REST</span>
+                            <span class="tech-tag">Vue.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHP Projects -->
+                <div class="project-card" data-category="php">
+                    <div class="project-image">
+                        <img src="../assets/images/Financeiro.png" alt="Sistema PHP">
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Gestão</h3>
+                        <p>Sistema completo de gestão empresarial com múltiplos módulos integrados.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="php">
+                    <div class="project-image">
+                        <img src="../assets/images/WP-Dashboard-plugins-install.png" alt="WordPress Plugin">
+                    </div>
+                    <div class="project-content">
+                        <h3>Plugin WordPress</h3>
+                        <p>Plugin personalizado para WordPress com funcionalidades avançadas de SEO.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript Projects -->
+                <div class="project-card" data-category="javascript">
+                    <div class="project-image">
+                        <img src="../assets/images/trello-1024x687.png" alt="App JavaScript">
+                    </div>
+                    <div class="project-content">
+                        <h3>App de Tarefas</h3>
+                        <p>Aplicativo de gerenciamento de tarefas com armazenamento local e sincronização.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">LocalStorage</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="javascript">
+                    <div class="project-image">
+                        <img src="../assets/images/216782697-9b933855-a451-49e6-a127-dc0d2f277268.png" alt="Game JavaScript">
+                    </div>
+                    <div class="project-content">
+                        <h3>Jogo da Velha</h3>
+                        <p>Jogo da velha interativo com inteligência artificial e múltiplos níveis.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Canvas API</span>
+                            <span class="tech-tag">Algoritmos</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Projects -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="../assets/images/bottelegram.webp" alt="Bot Python">
+                    </div>
+                    <div class="project-content">
+                        <h3>Bot de Telegram</h3>
+                        <p>Bot inteligente para Telegram com funcionalidades de automação e integração.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Telegram API</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="../assets/images/Web Scraping.jpg" alt="Scraper Python">
+                    </div>
+                    <div class="project-content">
+                        <h3>Web Scraper</h3>
+                        <p>Ferramenta de web scraping para coleta e análise de dados de websites.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Node.js Projects -->
+                <div class="project-card" data-category="nodejs">
+                    <div class="project-image">
+                        <img src="../assets/images/restapi.png" alt="API Node.js">
+                    </div>
+                    <div class="project-content">
+                        <h3>API REST</h3>
+                        <p>API RESTful completa com autenticação JWT e documentação Swagger.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="nodejs">
+                    <div class="project-image">
+                        <img src="../assets/images/live-chat-software.jpg" alt="Chat Node.js">
+                    </div>
+                    <div class="project-content">
+                        <h3>Chat em Tempo Real</h3>
+                        <p>Aplicativo de chat em tempo real com Socket.io e interface responsiva.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HTML/CSS Projects -->
+                <div class="project-card" data-category="html-css">
+                    <div class="project-image">
+                        <img src="../assets/images/landing-pages.jpg" alt="Landing Page">
+                    </div>
+                    <div class="project-content">
+                        <h3>Landing Page</h3>
+                        <p>Landing page moderna e responsiva com animações CSS e otimização SEO.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="html-css">
+                    <div class="pprojeto-final/portfolio.htmlroject-image">
+                        <img src="../assets/images/portfolio-grid-hover.jpg" alt="Portfolio CSS">
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio CSS Grid</h3>
+                        <p>Portfolio pessoal desenvolvido com CSS Grid e Flexbox para layout moderno.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">Flexbox</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-project">Ver Projeto</a>
+                            <a href="#" class="btn-project">Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WiseBites</h3>
+                    <p>Transformando vidas através da nutrição inteligente.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>contato@wisebites.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WiseBites. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            <div class="form-footer">
+                <p>Não tem uma conta? <a href="#" id="registerLink">Registre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/filter.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/ui-enhancements.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

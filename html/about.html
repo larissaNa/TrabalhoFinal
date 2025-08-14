@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - WiseBites</title>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            document.body && document.body.classList && document.body.classList.add('dark-theme');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assets/images/logo.jpg" alt="WiseBites Logo">
+                <h1>WiseBites</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#services">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                    <li><a href="about.html" class="active">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar no site...">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                </div>
+                <div class="auth-container">
+                    <button id="loginBtn" class="btn-login">Login</button>
+                    <div id="userProfile" class="user-profile" style="display: none;">
+                        <div class="notification-container">
+                            <button id="notificationBtn" class="notification-btn">
+                                <span class="notification-icon">🔔</span>
+                                <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
+                            </button>
+                            <div id="notificationDropdown" class="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3>Notificações</h3>
+                                    <button id="markAllRead" class="mark-read-btn">Marcar todas como lidas</button>
+                                </div>
+                                <div id="notificationList" class="notification-list">
+                                    <!-- Notifications will be added here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                        <img src="../assets/user-avatar.jpg" alt="Avatar" class="user-avatar">
+                        <span class="user-name">Usuário</span>
+                        <button id="logoutBtn" class="btn-logout">Sair</button>
+                    </div>
+                    <button id="themeToggleBtn" class="theme-toggle-btn">☀️</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="hero about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sobre a WiseBites</h1>
+                <p>Transformando ideias em experiências digitais excepcionais</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Nossa História</h2>
+                    <p>A WiseBites nasceu da paixão por criar soluções digitais inovadoras que realmente fazem a diferença. Fundada em 2020, nossa empresa tem se dedicado a desenvolver aplicações web modernas, responsivas e centradas no usuário.</p>
+                    
+                    <p>Nossa missão é transformar ideias em realidade digital, oferecendo soluções personalizadas que atendem às necessidades específicas de cada cliente. Acreditamos que a tecnologia deve ser acessível, intuitiva e eficiente.</p>
+                    
+                    <h3>Nossos Valores</h3>
+                    <ul>
+                        <li><strong>Inovação:</strong> Sempre buscamos as melhores práticas e tecnologias emergentes</li>
+                        <li><strong>Qualidade:</strong> Comprometimento com a excelência em cada projeto</li>
+                        <li><strong>Transparência:</strong> Comunicação clara e honesta com nossos clientes</li>
+                        <li><strong>Sustentabilidade:</strong> Desenvolvimento responsável e consciente</li>
+                    </ul>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projetos Concluídos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>30+</h3>
+                        <p>Clientes Satisfeitos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>Anos de Experiência</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Compromisso com Qualidade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2>Nossa Equipe</h2>
+            <p class="section-subtitle">Conheça os profissionais que fazem a WiseBites acontecer</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../assets/team-1.jpg" alt="João Silva">
+                    </div>
+                    <div class="member-info">
+                        <h3>João Silva</h3>
+                        <p class="member-role">Desenvolvedor Full-Stack</p>
+                        <p class="member-description">Especialista em React, Node.js e Python. Apaixonado por criar soluções escaláveis e eficientes.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../assets/team-2.jpg" alt="Maria Santos">
+                    </div>
+                    <div class="member-info">
+                        <h3>Maria Santos</h3>
+                        <p class="member-role">Designer UX/UI</p>
+                        <p class="member-description">Criativa e detalhista, foca em experiências de usuário intuitivas e visualmente atrativas.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../assets/team-3.jpg" alt="Pedro Costa">
+                    </div>
+                    <div class="member-info">
+                        <h3>Pedro Costa</h3>
+                        <p class="member-role">Desenvolvedor Backend</p>
+                        <p class="member-description">Especialista em Django, PHP e bancos de dados. Garante a robustez e segurança das aplicações.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../assets/team-4.jpg" alt="Ana Oliveira">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ana Oliveira</h3>
+                        <p class="member-role">Gerente de Projetos</p>
+                        <p class="member-description">Coordena equipes e garante que cada projeto seja entregue no prazo e com qualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="container">
+            <h2>Tecnologias que Utilizamos</h2>
+            <p class="section-subtitle">Stack moderna e atualizada para projetos de alta qualidade</p>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-items">
+                        <span class="tech-item">React</span>
+                        <span class="tech-item">Vue.js</span>
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">TypeScript</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-items">
+                        <span class="tech-item">Node.js</span>
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Django</span>
+                        <span class="tech-item">PHP</span>
+                        <span class="tech-item">Express.js</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Banco de Dados</h3>
+                    <div class="tech-items">
+                        <span class="tech-item">PostgreSQL</span>
+                        <span class="tech-item">MySQL</span>
+                        <span class="tech-item">MongoDB</span>
+                        <span class="tech-item">Redis</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Ferramentas</h3>
+                    <div class="tech-items">
+                        <span class="tech-item">Git</span>
+                        <span class="tech-item">Docker</span>
+                        <span class="tech-item">AWS</span>
+                        <span class="tech-item">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top">↑</button>
+
+    <!-- Scripts -->
+    <script src="../js/search.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/ui-enhancements.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

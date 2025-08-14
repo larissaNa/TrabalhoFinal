@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Definindo codificação de caracteres UTF-8 e viewport para responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WiseBites - Nutrição Inteligente</title>
+
+    <!-- Script para carregar tema salvo (dark mode) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme'); // Recupera tema salvo no localStorage
+                if (saved === 'dark') {
+                    // Adiciona classe 'dark-theme' ao <html> e <body> caso o tema seja escuro
+                    document.documentElement.classList.add('dark-theme');
+                    document.body && document.body.classList && document.body.classList.add('dark-theme');
+                }
+            } catch (e) {
+                // Ignora erros caso localStorage não esteja disponível
+            }
+        })();
+    </script>
+
+    <!-- Importando arquivos CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/carousel.css">
+</head>
+
+<body>
+    <!-- Header do site: logo, navegação, ações do usuário (login, pesquisa, tema) -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo do site -->
+            <div class="logo">
+                <img src="assets/images/logo.jpg" alt="WiseBites Logo">
+                <h1>WiseBites</h1>
+            </div>
+
+            <!-- Menu de navegação -->
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="html/portfolio.html">Portfólio</a></li>
+                    <li><a href="html/about.html">Sobre</a></li>
+                    <li><a href="html/contact.html">Contato</a></li>
+                </ul>
+                <!-- Menu hambúrguer para mobile -->
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+
+            <!-- Ações adicionais do header: pesquisa, login, tema -->
+            <div class="nav-actions">
+                <!-- Campo de pesquisa -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Pesquisar no site...">
+                    <button id="searchBtn" class="search-btn">🔍</button>
+                </div>
+
+                <!-- Área de autenticação -->
+                <div class="auth-container">
+                    <!-- Botão de login -->
+                    <button id="loginBtn" class="btn-login">Login</button>
+                    <!-- Botão para alternar tema -->
+                    <button id="themeToggleBtn" title="Alternar tema"
+                        style="background:none; border:none; cursor:pointer; font-size:1.5rem; margin-left:16px;">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+
+                    <!-- Perfil do usuário (aparece quando logado) -->
+                    <div id="userProfile" class="user-profile" style="display: none;">
+                        <!-- Notificações -->
+                        <div class="notification-container">
+                            <button id="notificationBtn" class="notification-btn">
+                                <span class="notification-icon">🔔</span>
+                                <span id="notificationBadge" class="notification-badge" style="display: none;">0</span>
+                            </button>
+                            <div id="notificationDropdown" class="notification-dropdown">
+                                <div class="notification-header">
+                                    <h3>Notificações</h3>
+                                    <button id="markAllRead" class="mark-read-btn">Marcar todas como lidas</button>
+                                </div>
+                                <div id="notificationList" class="notification-list">
+                                    <!-- Notificações adicionadas dinamicamente via JS -->
+                                </div>
+                            </div>
+                        </div>
+                        <img src="assets/user-avatar.jpg" alt="Avatar" class="user-avatar">
+                        <span class="user-name">Usuário</span>
+                        <button id="logoutBtn" class="btn-logout">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Hero com carrossel principal -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel" id="mainCarousel">
+                    <!-- Slides do carrossel -->
+                    <div class="carousel-slide active">
+                        <!-- Conteúdo textual do slide -->
+                        <div class="slide-content">
+                            <h2>Nutrição Personalizada</h2>
+                            <p>Descubra o poder da alimentação saudável com nossos especialistas em nutrição.</p>
+                            <button class="btn-primary">Agende sua Consulta</button>
+                        </div>
+                        <div class="slide-image">
+                            <img src="assets/images/istockphoto-1296507353-612x612.jpg" alt="Nutrição Personalizada">
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h2>Receitas Saudáveis</h2>
+                            <p>Aprenda pratos deliciosos e nutritivos para o dia a dia.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img src="assets/images/istockphoto-1409236261-612x612.jpg" alt="Receitas Saudáveis">
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h2>Estimativa de Calorias por IA</h2>
+                            <p>Envie a foto do seu prato e receba análise automática de calorias e nutrientes.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img src="assets/images/istockphoto-1433432507-612x612.jpg" alt="Estimativa de Calorias por IA">
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h2>Acompanhamento Online</h2>
+                            <p>Conecte-se ao seu nutricionista e receba suporte personalizado a qualquer hora.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img src="assets/images/acompanhamento-online.jpg" alt="Acompanhamento Online">
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h2>Planos Alimentares Personalizados</h2>
+                            <p>Tenha um plano adaptado ao seu estilo de vida e objetivos de saúde.</p>
+                        </div>
+                        <div class="slide-image">
+                            <img src="assets/images/plano-alimentar.jpg" alt="Planos Alimentares">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn prev" id="mainPrev"><span>&lt;</span></button>
+                <button class="carousel-btn next" id="mainNext"><span>&gt;</span></button>
+
+                <div class="carousel-indicators" id="mainIndicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+<section class="testimonials">
+    <div class="container">
+        <h2>Depoimentos de Nossos Clientes</h2>
+        <!-- Carrossel de depoimentos -->
+        <div class="testimonials-carousel-container">
+            <div class="testimonials-carousel" id="testimonialsCarousel">
+
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"O WiseBites transformou minha relação com a alimentação. Hoje me sinto mais saudável e cheia de energia!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-1.jpg" alt="Maria Silva">
+                            <div class="author-info">
+                                <h4>Maria Silva</h4>
+                                <span>Cliente desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"Como nutricionista, o sistema me permite acompanhar meus pacientes de forma muito mais prática e rápida."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-2.jpg" alt="Dr. João Pereira">
+                            <div class="author-info">
+                                <h4>Dr. João Pereira</h4>
+                                <span>Nutricionista parceiro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"O recurso de IA para estimativa de calorias é incrível! Nunca foi tão fácil controlar minha dieta."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-3.jpg" alt="Ana Costa">
+                            <div class="author-info">
+                                <h4>Ana Costa</h4>
+                                <span>Cliente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"Finalmente encontrei uma plataforma que une tecnologia e saúde de forma simples e eficiente."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-4.jpg" alt="Carlos Souza">
+                            <div class="author-info">
+                                <h4>Carlos Souza</h4>
+                                <span>Cliente e entusiasta de tecnologia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"Graças ao acompanhamento online, consigo manter minha rotina saudável mesmo viajando a trabalho."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-5.jpg" alt="Fernanda Lima">
+                            <div class="author-info">
+                                <h4>Fernanda Lima</h4>
+                                <span>Cliente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>"O painel de controle para nutricionistas é excelente! Tenho todas as informações dos meus pacientes em um só lugar."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="assets/images/client-6.jpg" alt="Luciana Rocha">
+                            <div class="author-info">
+                                <h4>Luciana Rocha</h4>
+                                <span>Nutricionista desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botões e indicadores do carrossel de depoimentos -->
+            <button class="carousel-btn prev" id="testimonialsPrevBtn">
+                <span>&lt;</span>
+            </button>
+            <button class="carousel-btn next" id="testimonialsNextBtn">
+                <span>&gt;</span>
+            </button>
+            <div class="carousel-indicators" id="testimonialsIndicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Seção de Serviços -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🥗</div>
+                    <h3>Consultoria Nutricional</h3>
+                    <p>Avaliação completa e plano alimentar personalizado para seus objetivos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Atendimento Online</h3>
+                    <p>Consultas por videochamada com total flexibilidade de horários.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Acompanhamento</h3>
+                    <p>Monitoramento contínuo do seu progresso e ajustes no plano.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Informações gerais, contato e redes sociais -->
+                <div class="footer-section">
+                    <h3>WiseBites</h3>
+                    <p>Transformando vidas através da nutrição inteligente.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>contato@wisebites.com</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WiseBites. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            <div class="form-footer">
+                <p>Não tem uma conta? <a href="#" id="registerLink">Registre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JS -->
+    <script src="js/carousel.js"></script> <!-- Controla os carrosséis de slides -->
+    <script src="js/search.js"></script> <!-- Implementa a funcionalidade de pesquisa -->
+    <script src="js/login.js"></script> <!-- Lida com login e modal de autenticação -->
+    <script src="js/notifications.js"></script> <!-- Controla notificações do usuário -->
+    <script src="js/main.js"></script> <!-- Funções gerais do site -->
+    <script src="js/ui-enhancements.js"></script> <!-- Melhorias de interface e interatividade -->
+</body>
+
+</html>
